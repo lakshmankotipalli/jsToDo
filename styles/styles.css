@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+}
+
+#dabba {
+    width: 70%;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#dabba button {
+    height: 28px;
+}
+
+.toDoInput {
+    margin: 50px 0 0 50px;
+    padding: 5px;
+}
