@@ -12,22 +12,24 @@ function addToDo() {
         console.log(toDoList);
         document.getElementById('toDoInput').value = '';
         createToDoList(toDoList);
+        toDoList = [];
     } else {
         alert('Nothing to do? Give it a thought!!');
     }
 }
 
-    var listElement = createToDoList(toDoList);
-    document.getElementById('board').appendChild(listElement);
-
 function createToDoList (toDoList) {
     var list = document.createElement('ul');
     for(var i=0; i<toDoList.length;i++) {
         var listItem = document.createElement('li');
+        //var delListElement = document.createElement('button');
+        //delListElement.appendChild(document.createTextNode(" X "));
         listItem.appendChild(document.createTextNode(toDoList[i].todo));
+        //listItem.appendChild(delListElement);
         list.appendChild(listItem);
     }
-    return list;
+    //return list;
+    document.getElementById('board').appendChild(list);
 }
 
 function addElement () {
