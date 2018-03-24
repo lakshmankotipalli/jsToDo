@@ -1,8 +1,17 @@
-document.body.onload = addElement;
+document.body.onload = createTaskSpace;
 
+// Global Variables
 var toDoObj = {};
 var toDoList = [];
+var list = document.createElement('ul');
 
+
+// Appending the UL to the section 'board'
+function createTaskSpace () {
+    document.getElementById('board').appendChild(list);
+}
+
+// Adding todo into the todoList array
 function addToDo() {
     if(document.getElementById('toDoInput').value != "") {
         toDoObj.todo = document.getElementById('toDoInput').value;
@@ -18,24 +27,11 @@ function addToDo() {
     }
 }
 
+// Creating tasks as 'li' items into the already create UL
 function createToDoList (toDoList) {
-    var list = document.createElement('ul');
     for(var i=0; i<toDoList.length;i++) {
         var listItem = document.createElement('li');
-        //var delListElement = document.createElement('button');
-        //delListElement.appendChild(document.createTextNode(" X "));
-        listItem.appendChild(document.createTextNode(toDoList[i].todo));
-        //listItem.appendChild(delListElement);
+        listItem.innerHTML = toDoList[i].todo;
         list.appendChild(listItem);
     }
-    //return list;
-    document.getElementById('board').appendChild(list);
-}
-
-function addElement () {
-    var heading = document.createElement("h2");
-    var txt = document.createTextNode("ToDo App with JS");
-    heading.appendChild(txt);
-    var currentDiv = document.getElementById('dabba');
-    document.body.insertBefore(heading, currentDiv);
 }
